@@ -22,35 +22,18 @@ Partial Class Form1
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.PictureBoxOriginal = New System.Windows.Forms.PictureBox()
-        Me.PictureBoxDifferent = New System.Windows.Forms.PictureBox()
         Me.ButtonCalcStart = New System.Windows.Forms.Button()
         Me.LabelCopyWrite = New System.Windows.Forms.Label()
         Me.RichTextBoxMap = New System.Windows.Forms.RichTextBox()
-        Me.PictureBoxChip = New System.Windows.Forms.PictureBox()
         Me.ButtonCopyText = New System.Windows.Forms.Button()
         Me.ButtonCopyImage = New System.Windows.Forms.Button()
-        CType(Me.PictureBoxOriginal, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBoxDifferent, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PictureBoxChip = New System.Windows.Forms.PictureBox()
+        Me.PictureBoxDifferent = New System.Windows.Forms.PictureBox()
+        Me.PictureBoxOriginal = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBoxChip, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBoxDifferent, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBoxOriginal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'PictureBoxOriginal
-        '
-        Me.PictureBoxOriginal.Image = Global.MapEditor.My.Resources.Resources.地図
-        Me.PictureBoxOriginal.Location = New System.Drawing.Point(11, 13)
-        Me.PictureBoxOriginal.Name = "PictureBoxOriginal"
-        Me.PictureBoxOriginal.Size = New System.Drawing.Size(260, 260)
-        Me.PictureBoxOriginal.TabIndex = 0
-        Me.PictureBoxOriginal.TabStop = False
-        '
-        'PictureBoxDifferent
-        '
-        Me.PictureBoxDifferent.Location = New System.Drawing.Point(277, 13)
-        Me.PictureBoxDifferent.Name = "PictureBoxDifferent"
-        Me.PictureBoxDifferent.Size = New System.Drawing.Size(240, 260)
-        Me.PictureBoxDifferent.TabIndex = 1
-        Me.PictureBoxDifferent.TabStop = False
         '
         'ButtonCalcStart
         '
@@ -79,14 +62,6 @@ Partial Class Form1
         Me.RichTextBoxMap.Text = ""
         Me.RichTextBoxMap.WordWrap = False
         '
-        'PictureBoxChip
-        '
-        Me.PictureBoxChip.Location = New System.Drawing.Point(11, 279)
-        Me.PictureBoxChip.Name = "PictureBoxChip"
-        Me.PictureBoxChip.Size = New System.Drawing.Size(506, 63)
-        Me.PictureBoxChip.TabIndex = 5
-        Me.PictureBoxChip.TabStop = False
-        '
         'ButtonCopyText
         '
         Me.ButtonCopyText.Location = New System.Drawing.Point(717, 47)
@@ -105,6 +80,31 @@ Partial Class Form1
         Me.ButtonCopyImage.Text = "CopyImage"
         Me.ButtonCopyImage.UseVisualStyleBackColor = True
         '
+        'PictureBoxChip
+        '
+        Me.PictureBoxChip.Location = New System.Drawing.Point(11, 279)
+        Me.PictureBoxChip.Name = "PictureBoxChip"
+        Me.PictureBoxChip.Size = New System.Drawing.Size(506, 63)
+        Me.PictureBoxChip.TabIndex = 5
+        Me.PictureBoxChip.TabStop = False
+        '
+        'PictureBoxDifferent
+        '
+        Me.PictureBoxDifferent.Location = New System.Drawing.Point(277, 13)
+        Me.PictureBoxDifferent.Name = "PictureBoxDifferent"
+        Me.PictureBoxDifferent.Size = New System.Drawing.Size(240, 260)
+        Me.PictureBoxDifferent.TabIndex = 1
+        Me.PictureBoxDifferent.TabStop = False
+        '
+        'PictureBoxOriginal
+        '
+        Me.PictureBoxOriginal.Image = Global.MapEditor.My.Resources.Resources.地図
+        Me.PictureBoxOriginal.Location = New System.Drawing.Point(11, 13)
+        Me.PictureBoxOriginal.Name = "PictureBoxOriginal"
+        Me.PictureBoxOriginal.Size = New System.Drawing.Size(260, 260)
+        Me.PictureBoxOriginal.TabIndex = 0
+        Me.PictureBoxOriginal.TabStop = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -120,9 +120,9 @@ Partial Class Form1
         Me.Controls.Add(Me.PictureBoxOriginal)
         Me.Name = "Form1"
         Me.Text = "Form1"
-        CType(Me.PictureBoxOriginal, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBoxDifferent, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBoxChip, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBoxDifferent, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBoxOriginal, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
