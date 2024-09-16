@@ -42,7 +42,7 @@ Public Class Form1
                 If str.Length = 1 Then
                     str = "0" + str
                 End If
-                tex = tex + str
+                tex += str
             Next
             tex = tex + vbCrLf
         Next

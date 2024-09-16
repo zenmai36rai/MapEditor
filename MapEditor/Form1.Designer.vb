@@ -84,7 +84,7 @@ Partial Class Form1
         '
         Me.PictureBoxChip.Location = New System.Drawing.Point(11, 279)
         Me.PictureBoxChip.Name = "PictureBoxChip"
-        Me.PictureBoxChip.Size = New System.Drawing.Size(506, 63)
+        Me.PictureBoxChip.Size = New System.Drawing.Size(506, 162)
         Me.PictureBoxChip.TabIndex = 5
         Me.PictureBoxChip.TabStop = False
         '
