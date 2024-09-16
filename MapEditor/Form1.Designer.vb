@@ -27,8 +27,10 @@ Partial Class Form1
         Me.ButtonCalcStart = New System.Windows.Forms.Button()
         Me.LabelCopyWrite = New System.Windows.Forms.Label()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
+        Me.PictureBoxChip = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBoxOriginal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBoxDifferent, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBoxChip, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PictureBoxOriginal
@@ -75,11 +77,20 @@ Partial Class Form1
         Me.RichTextBox1.Text = ""
         Me.RichTextBox1.WordWrap = False
         '
+        'PictureBoxChip
+        '
+        Me.PictureBoxChip.Location = New System.Drawing.Point(11, 279)
+        Me.PictureBoxChip.Name = "PictureBoxChip"
+        Me.PictureBoxChip.Size = New System.Drawing.Size(506, 63)
+        Me.PictureBoxChip.TabIndex = 5
+        Me.PictureBoxChip.TabStop = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.PictureBoxChip)
         Me.Controls.Add(Me.RichTextBox1)
         Me.Controls.Add(Me.LabelCopyWrite)
         Me.Controls.Add(Me.ButtonCalcStart)
@@ -89,6 +100,7 @@ Partial Class Form1
         Me.Text = "Form1"
         CType(Me.PictureBoxOriginal, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBoxDifferent, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBoxChip, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -99,4 +111,5 @@ Partial Class Form1
     Friend WithEvents ButtonCalcStart As Button
     Friend WithEvents LabelCopyWrite As Label
     Friend WithEvents RichTextBox1 As RichTextBox
+    Friend WithEvents PictureBoxChip As PictureBox
 End Class
