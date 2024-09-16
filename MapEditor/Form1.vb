@@ -1,11 +1,10 @@
 ﻿' MapEditor for DragonQuest Open Source Software Writen by Kyosuke Miyazawa 2024
 Public Class Form1
-    Private CHIP_CHAR As Char() = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"}
     Public MAP_X As Integer = 135
     Public MAP_Y As Integer = 132
     Public CHIP_W As Integer = 16
     Public CHIP_H As Integer = 16
-    Public TEXT_MAP(MAP_X, MAP_Y) As Char
+    Public TEXT_MAP(MAP_X, MAP_Y) As Int16
     Private Sub ButtonCalcStart_Click(sender As Object, e As EventArgs) Handles ButtonCalcStart.Click
         Dim CHIP_COUNT = 0
         Dim bmp As Bitmap = New Bitmap(PictureBoxOriginal.Image)
@@ -26,12 +25,12 @@ Public Class Form1
                     If SameBitmap(chip1, chip2) Then
                         AllDiff = False
                         chip_number = i
-                        TEXT_MAP(x, y) = CHIP_CHAR(i)
+                        TEXT_MAP(x, y) = chip_number
                     End If
                 Next
                 If AllDiff Then
                     ImageList.Add(mapchip)
-                    TEXT_MAP(x, y) = CHIP_CHAR(CHIP_COUNT)
+                    TEXT_MAP(x, y) = CHIP_COUNT
                     CHIP_COUNT = CHIP_COUNT + 1
                 End If
             Next
@@ -39,7 +38,11 @@ Public Class Form1
         Dim tex As String = ""
         For y = 0 To MAP_Y - 1
             For x = 0 To MAP_X - 1
-                tex = tex + TEXT_MAP(x, y)
+                Dim str As String = Hex(TEXT_MAP(x, y))
+                If str.Length = 1 Then
+                    str = "0" + str
+                End If
+                tex = tex + str
             Next
             tex = tex + vbCrLf
         Next
@@ -60,8 +63,8 @@ Public Class Form1
         Dim g3 = Graphics.FromImage(diff)
         For y2 = 0 To MAP_Y - 1
             For x2 = 0 To MAP_X - 1
-                For i = 0 To CHIP_CHAR.Length - 1
-                    If TEXT_MAP(x2, y2) = CHIP_CHAR(i) Then
+                For i = 0 To ImageList.Count
+                    If TEXT_MAP(x2, y2) = i Then
                         Dim mapchip = ImageList(i)
                         Dim d As Rectangle = New Rectangle(x2 * CHIP_W, y2 * CHIP_H, CHIP_W, CHIP_H)
                         Dim s As Rectangle = New Rectangle(0, 0, CHIP_W, CHIP_H)
