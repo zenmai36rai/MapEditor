@@ -28,6 +28,8 @@ Partial Class Form1
         Me.LabelCopyWrite = New System.Windows.Forms.Label()
         Me.RichTextBoxMap = New System.Windows.Forms.RichTextBox()
         Me.PictureBoxChip = New System.Windows.Forms.PictureBox()
+        Me.ButtonCopyText = New System.Windows.Forms.Button()
+        Me.ButtonCopyImage = New System.Windows.Forms.Button()
         CType(Me.PictureBoxOriginal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBoxDifferent, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBoxChip, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -85,11 +87,31 @@ Partial Class Form1
         Me.PictureBoxChip.TabIndex = 5
         Me.PictureBoxChip.TabStop = False
         '
+        'ButtonCopyText
+        '
+        Me.ButtonCopyText.Location = New System.Drawing.Point(717, 47)
+        Me.ButtonCopyText.Name = "ButtonCopyText"
+        Me.ButtonCopyText.Size = New System.Drawing.Size(73, 19)
+        Me.ButtonCopyText.TabIndex = 6
+        Me.ButtonCopyText.Text = "CopyText"
+        Me.ButtonCopyText.UseVisualStyleBackColor = True
+        '
+        'ButtonCopyImage
+        '
+        Me.ButtonCopyImage.Location = New System.Drawing.Point(717, 72)
+        Me.ButtonCopyImage.Name = "ButtonCopyImage"
+        Me.ButtonCopyImage.Size = New System.Drawing.Size(73, 19)
+        Me.ButtonCopyImage.TabIndex = 7
+        Me.ButtonCopyImage.Text = "CopyImage"
+        Me.ButtonCopyImage.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.ButtonCopyImage)
+        Me.Controls.Add(Me.ButtonCopyText)
         Me.Controls.Add(Me.PictureBoxChip)
         Me.Controls.Add(Me.RichTextBoxMap)
         Me.Controls.Add(Me.LabelCopyWrite)
@@ -112,4 +134,6 @@ Partial Class Form1
     Friend WithEvents LabelCopyWrite As Label
     Friend WithEvents RichTextBoxMap As RichTextBox
     Friend WithEvents PictureBoxChip As PictureBox
+    Friend WithEvents ButtonCopyText As Button
+    Friend WithEvents ButtonCopyImage As Button
 End Class

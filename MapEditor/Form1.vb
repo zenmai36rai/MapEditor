@@ -1,8 +1,8 @@
 ﻿' MapEditor for DragonQuest Open Source Software Writen by Kyosuke Miyazawa 2024
 Public Class Form1
     Private CHIP_CHAR As Char() = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"}
-    Public MAP_X As Integer = 16
-    Public MAP_Y As Integer = 16
+    Public MAP_X As Integer = 135
+    Public MAP_Y As Integer = 132
     Public CHIP_W As Integer = 16
     Public CHIP_H As Integer = 16
     Public TEXT_MAP(MAP_X, MAP_Y) As Char
@@ -44,7 +44,7 @@ Public Class Form1
             tex = tex + vbCrLf
         Next
         RichTextBoxMap.Text = tex
-        Dim canvas As New Bitmap(PictureBoxDifferent.Width, PictureBoxDifferent.Height)
+        Dim canvas As New Bitmap(PictureBoxChip.Width, PictureBoxChip.Height)
         Dim g2 = Graphics.FromImage(canvas)
         For i = 0 To ImageList.Count - 1
             Dim mapchip = ImageList(i)
@@ -55,7 +55,23 @@ Public Class Form1
             g2.DrawImage(mapchip, d, s, GraphicsUnit.Pixel)
         Next
         g2.Dispose()
-        PictureBoxDifferent.Image = canvas
+        PictureBoxChip.Image = canvas
+        Dim diff As New Bitmap(PictureBoxDifferent.Width, PictureBoxDifferent.Height)
+        Dim g3 = Graphics.FromImage(diff)
+        For y2 = 0 To MAP_Y - 1
+            For x2 = 0 To MAP_X - 1
+                For i = 0 To CHIP_CHAR.Length - 1
+                    If TEXT_MAP(x2, y2) = CHIP_CHAR(i) Then
+                        Dim mapchip = ImageList(i)
+                        Dim d As Rectangle = New Rectangle(x2 * CHIP_W, y2 * CHIP_H, CHIP_W, CHIP_H)
+                        Dim s As Rectangle = New Rectangle(0, 0, CHIP_W, CHIP_H)
+                        g3.DrawImage(mapchip, d, s, GraphicsUnit.Pixel)
+                    End If
+                Next
+            Next
+        Next
+        g3.Dispose()
+        PictureBoxDifferent.Image = diff
     End Sub
     Private Function SameBitmap(ByVal c1 As Bitmap, ByVal c2 As Bitmap) As Boolean
         If (c1.Width <> c2.Width) Or (c1.Height <> c2.Height) Then
@@ -72,4 +88,12 @@ Public Class Form1
         Next
         Return True
     End Function
+
+    Private Sub ButtonCopy_Click(sender As Object, e As EventArgs) Handles ButtonCopyText.Click
+        Clipboard.SetText(RichTextBoxMap.Text)
+    End Sub
+
+    Private Sub ButtonCopyImage_Click(sender As Object, e As EventArgs) Handles ButtonCopyImage.Click
+        Clipboard.SetImage(PictureBoxChip.Image)
+    End Sub
 End Class
