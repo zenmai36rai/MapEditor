@@ -1,10 +1,13 @@
 ﻿' MapEditor for DragonQuest Open Source Software Writen by Kyosuke Miyazawa 2024
 Public Class Form1
+    Private CHIP_CHAR As Char() = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"}
     Public MAP_X As Integer = 16
     Public MAP_Y As Integer = 16
     Public CHIP_W As Integer = 16
     Public CHIP_H As Integer = 16
+    Public TEXT_MAP(MAP_X, MAP_Y) As Char
     Private Sub ButtonCalcStart_Click(sender As Object, e As EventArgs) Handles ButtonCalcStart.Click
+        Dim CHIP_COUNT = 0
         Dim bmp As Bitmap = New Bitmap(PictureBoxOriginal.Image)
         Dim ImageList = New List(Of Bitmap)
         For y = 0 To MAP_Y - 1
@@ -16,30 +19,43 @@ Public Class Form1
                 g.DrawImage(bmp, d, s, GraphicsUnit.Pixel)
                 g.Dispose()
                 Dim AllDiff = True
+                Dim chip_number = 0
                 For i = 0 To ImageList.Count - 1
                     Dim chip1 As Bitmap = ImageList(i)
                     Dim chip2 As Bitmap = mapchip
                     If SameBitmap(chip1, chip2) Then
                         AllDiff = False
+                        chip_number = i
+                        TEXT_MAP(x, y) = CHIP_CHAR(i)
                     End If
                 Next
                 If AllDiff Then
                     ImageList.Add(mapchip)
+                    TEXT_MAP(x, y) = CHIP_CHAR(CHIP_COUNT)
+                    CHIP_COUNT = CHIP_COUNT + 1
                 End If
             Next
         Next
-        Dim canvas As New Bitmap(PictureBoxDifferent.Width, PictureBoxDifferent.Height)
-            Dim g2 = Graphics.FromImage(canvas)
-            For i = 0 To ImageList.Count - 1
-                Dim mapchip = ImageList(i)
-                Dim x As Integer = i Mod MAP_X
-                Dim y As Integer = (i - x) / MAP_X
-                Dim d As Rectangle = New Rectangle(x * CHIP_W, y * CHIP_H, CHIP_W, CHIP_H)
-                Dim s As Rectangle = New Rectangle(0, 0, CHIP_W, CHIP_H)
-                g2.DrawImage(mapchip, d, s, GraphicsUnit.Pixel)
+        Dim tex As String = ""
+        For y = 0 To MAP_Y - 1
+            For x = 0 To MAP_X - 1
+                tex = tex + TEXT_MAP(x, y)
             Next
-            g2.Dispose()
-            PictureBoxDifferent.Image = canvas
+            tex = tex + vbCrLf
+        Next
+        RichTextBoxMap.Text = tex
+        Dim canvas As New Bitmap(PictureBoxDifferent.Width, PictureBoxDifferent.Height)
+        Dim g2 = Graphics.FromImage(canvas)
+        For i = 0 To ImageList.Count - 1
+            Dim mapchip = ImageList(i)
+            Dim x As Integer = i Mod MAP_X
+            Dim y As Integer = (i - x) / MAP_X
+            Dim d As Rectangle = New Rectangle(x * CHIP_W, y * CHIP_H, CHIP_W, CHIP_H)
+            Dim s As Rectangle = New Rectangle(0, 0, CHIP_W, CHIP_H)
+            g2.DrawImage(mapchip, d, s, GraphicsUnit.Pixel)
+        Next
+        g2.Dispose()
+        PictureBoxDifferent.Image = canvas
     End Sub
     Private Function SameBitmap(ByVal c1 As Bitmap, ByVal c2 As Bitmap) As Boolean
         If (c1.Width <> c2.Width) Or (c1.Height <> c2.Height) Then

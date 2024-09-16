@@ -26,7 +26,7 @@ Partial Class Form1
         Me.PictureBoxDifferent = New System.Windows.Forms.PictureBox()
         Me.ButtonCalcStart = New System.Windows.Forms.Button()
         Me.LabelCopyWrite = New System.Windows.Forms.Label()
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
+        Me.RichTextBoxMap = New System.Windows.Forms.RichTextBox()
         Me.PictureBoxChip = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBoxOriginal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBoxDifferent, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -68,14 +68,14 @@ Partial Class Form1
         Me.LabelCopyWrite.TabIndex = 3
         Me.LabelCopyWrite.Text = "MapEditor Kyosuke Miyazawa 2024"
         '
-        'RichTextBox1
+        'RichTextBoxMap
         '
-        Me.RichTextBox1.Location = New System.Drawing.Point(522, 12)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(186, 260)
-        Me.RichTextBox1.TabIndex = 4
-        Me.RichTextBox1.Text = ""
-        Me.RichTextBox1.WordWrap = False
+        Me.RichTextBoxMap.Location = New System.Drawing.Point(522, 12)
+        Me.RichTextBoxMap.Name = "RichTextBoxMap"
+        Me.RichTextBoxMap.Size = New System.Drawing.Size(186, 260)
+        Me.RichTextBoxMap.TabIndex = 4
+        Me.RichTextBoxMap.Text = ""
+        Me.RichTextBoxMap.WordWrap = False
         '
         'PictureBoxChip
         '
@@ -91,7 +91,7 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.PictureBoxChip)
-        Me.Controls.Add(Me.RichTextBox1)
+        Me.Controls.Add(Me.RichTextBoxMap)
         Me.Controls.Add(Me.LabelCopyWrite)
         Me.Controls.Add(Me.ButtonCalcStart)
         Me.Controls.Add(Me.PictureBoxDifferent)
@@ -110,6 +110,6 @@ Partial Class Form1
     Friend WithEvents PictureBoxDifferent As PictureBox
     Friend WithEvents ButtonCalcStart As Button
     Friend WithEvents LabelCopyWrite As Label
-    Friend WithEvents RichTextBox1 As RichTextBox
+    Friend WithEvents RichTextBoxMap As RichTextBox
     Friend WithEvents PictureBoxChip As PictureBox
 End Class
