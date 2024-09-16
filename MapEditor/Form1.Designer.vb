@@ -26,6 +26,7 @@ Partial Class Form1
         Me.PictureBoxDifferent = New System.Windows.Forms.PictureBox()
         Me.ButtonCalcStart = New System.Windows.Forms.Button()
         Me.LabelCopyWrite = New System.Windows.Forms.Label()
+        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         CType(Me.PictureBoxOriginal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBoxDifferent, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -35,15 +36,15 @@ Partial Class Form1
         Me.PictureBoxOriginal.Image = Global.MapEditor.My.Resources.Resources.地図
         Me.PictureBoxOriginal.Location = New System.Drawing.Point(11, 13)
         Me.PictureBoxOriginal.Name = "PictureBoxOriginal"
-        Me.PictureBoxOriginal.Size = New System.Drawing.Size(344, 412)
+        Me.PictureBoxOriginal.Size = New System.Drawing.Size(260, 260)
         Me.PictureBoxOriginal.TabIndex = 0
         Me.PictureBoxOriginal.TabStop = False
         '
         'PictureBoxDifferent
         '
-        Me.PictureBoxDifferent.Location = New System.Drawing.Point(361, 13)
+        Me.PictureBoxDifferent.Location = New System.Drawing.Point(277, 13)
         Me.PictureBoxDifferent.Name = "PictureBoxDifferent"
-        Me.PictureBoxDifferent.Size = New System.Drawing.Size(344, 412)
+        Me.PictureBoxDifferent.Size = New System.Drawing.Size(240, 260)
         Me.PictureBoxDifferent.TabIndex = 1
         Me.PictureBoxDifferent.TabStop = False
         '
@@ -65,11 +66,21 @@ Partial Class Form1
         Me.LabelCopyWrite.TabIndex = 3
         Me.LabelCopyWrite.Text = "MapEditor Kyosuke Miyazawa 2024"
         '
+        'RichTextBox1
+        '
+        Me.RichTextBox1.Location = New System.Drawing.Point(522, 12)
+        Me.RichTextBox1.Name = "RichTextBox1"
+        Me.RichTextBox1.Size = New System.Drawing.Size(186, 260)
+        Me.RichTextBox1.TabIndex = 4
+        Me.RichTextBox1.Text = ""
+        Me.RichTextBox1.WordWrap = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.RichTextBox1)
         Me.Controls.Add(Me.LabelCopyWrite)
         Me.Controls.Add(Me.ButtonCalcStart)
         Me.Controls.Add(Me.PictureBoxDifferent)
@@ -87,4 +98,5 @@ Partial Class Form1
     Friend WithEvents PictureBoxDifferent As PictureBox
     Friend WithEvents ButtonCalcStart As Button
     Friend WithEvents LabelCopyWrite As Label
+    Friend WithEvents RichTextBox1 As RichTextBox
 End Class
