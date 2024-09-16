@@ -2,8 +2,8 @@
 Public Class Form1
     Public MAP_X As Integer = 135
     Public MAP_Y As Integer = 132
-    Public CHIP_W As Integer = 16
-    Public CHIP_H As Integer = 16
+    Public CHIP_W As Integer = 8
+    Public CHIP_H As Integer = 8
     Public TEXT_MAP(MAP_X, MAP_Y) As Int16
     Private Sub ButtonCalcStart_Click(sender As Object, e As EventArgs) Handles ButtonCalcStart.Click
         Dim CHIP_COUNT = 0
